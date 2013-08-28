@@ -14,13 +14,13 @@
 		Edit the iframe source to whatever URL you want to show on load. Set the input to be the same.
 	-->
 	<header>
-		<input type="text" id="url" value="http://skinnyties.com/" placeholder="http://www.mydomain.com" size="40" />
+		<input type="text" id="url" value="http://www.morningtoast.com/feature/risk" placeholder="http://www.mydomain.com" size="40" />
 		<input type="text" id="breaks" value="320,480,600,768,960,1120" placeholder="Break points" size="40" />
 		<button onclick="start(this);" id="go" data-interval="1500">Start</button>
 		<code><span id="size"></span>px</code>
 	</header>
 
-	<iframe id="port" src="http://skinnyties.com/" width="320" height="600" frameborder="0"></iframe>
+	<iframe id="port" src="http://www.morningtoast.com/feature/risk" width="320" height="600" frameborder="0"></iframe>
 	<script>
 		// http://github.com/morningtoast
 		function expand(){var e=breaks.shift();view.setAttribute("width",parseInt(e));breaks.push(e);document.getElementById("size").innerHTML=e}function setUrl(){breaks=document.getElementById("breaks").value.split(",");nurl=document.getElementById("url").value;if(nurl!=url){url=nurl;view.setAttribute("src",url)}}function init(){view=document.getElementById("port");button=document.getElementById("go");interval=button.getAttribute("data-interval");setUrl();expand()}function stop(){running=false;window.clearInterval(clock);button.innerHTML="Start"}function start(e){if(running){stop()}else{e.innerHTML="Stop";running=true;setUrl();clock=window.setInterval(function(){expand()},interval)}}var running=false;var url;var view;var clock;var button;var breaks;var interval
